@@ -1,0 +1,138 @@
+h4 {
+  text-align: center;
+  justify-content: center;
+}
+
+.mensaje {
+  color: red;
+  margin-left: 30px;
+  margin-top: 2px;
+}
+.subtittle {
+  color: #6d6360;
+}
+
+.index-text {
+  color: #6b7281;
+  font-family: "Philosopher";
+  font-size: 16px;
+}
+
+.index-text span {
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.div-access .butt1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-access2 .butt1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.butt1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.butt2 {
+  font-family: "Oxygen";
+  font-size: 14px;
+  color: #6b7281;
+  padding: auto;
+  margin: auto;
+}
+
+.forgot-hiperv:hover {
+  color: #d1583d;
+}
+
+.access-custom .butt1 {
+  list-style-type: none;
+}
+
+div .butt1 li a {
+  font-family: "Oxygen";
+  color: #cd8574;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form2 ul {
+  display: flex;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.subtit {
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.access-custom .button1 {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 1px 1px 1px 1px #6b7281;
+  width: 320px;
+  height: 32px;
+  font-family: "Philosopher";
+  font-size: 14px;
+  color: #6b7281;
+}
+
+.access-custom .div-access2 .button2 {
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 1px 1px 1px 1px #6b7281;
+  width: 100%;
+  height: 32px;
+  font-family: "Philosopher";
+  font-size: 14px;
+  color: #6b7281;
+}
+
+.access-custom .div-access3 {
+  font-family: "Oxygen";
+  font-size: 14px;
+  color: #6b7281;
+}
+
+.div-access3 {
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.form-check .check-custom {
+  text-align: justify;
+}
+
+.button6 {
+  background-color: #cd8574 !important;
+  border: none;
+  color: #ffffff;
+  font-family: "Philosopher";
+  font-size: 14px;
+}
+
+.button6:hover {
+  background-color: #d1583d !important;
+  color: #ffffff;
+  font-family: "Philosopher";
+  font-size: 14px;
+}
+
+.button6a {
+  list-style-type: none;
+}

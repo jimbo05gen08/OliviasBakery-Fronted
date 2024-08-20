@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <p class="index-text ps-0">
+      <span>Iniciar sesión</span>
+    </p>
+
+    <div class="container-fluid">
+      <div class="container access-custom">
+        <div class="div-access">
+          <form [formGroup]="loginForm">
+            <input
+              type="name"
+              formControlName="userName"
+              class="form-control button1 mt-2"
+              id="userName"
+              aria-describedby="emailHelp"
+              placeholder="Ingresar usuario..."
+            />@if(controlHasError('userName','required')) {
+            <div class="mensaje">
+              El Usuario es requerido! => por favor ingrese un Usuario
+            </div>
+            }
+
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control button1 mt-2"
+              id="password"
+              placeholder="Contraseña..."
+            />
+            @if(controlHasError('password','required')) {
+            <div class="mensaje">
+              La Contraseña es requerida! => por favor ingrese una Contraseña
+            </div>
+            }
+          </form>
+        </div>
+
+        <ul class="butt1 px-0 pt-4 pb-2">
+          <li>
+            <a class="forgot-hiperv" href="#">¿Olvidaste la contraseña?</a>
+          </li>
+        </ul>
+        <ul class="butt1 px-0 pt-4 pb-2">
+          <li>
+            <a class="forgot-hiperv" [routerLink]="'/register'"
+              >Si aún no tiene una cuenta. Registrate aquí</a
+            >
+          </li>
+        </ul>
+
+        <div class="form2">
+          <div>
+            <ul class="px-0">
+              <button
+                (click)="loginUser()"
+                type="button"
+                class="btn btn-primary button6"
+              >
+                Iniciar Sesión
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

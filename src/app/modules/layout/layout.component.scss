@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+.loguito {
+  width: 50px;
+  height: 50px;
+}
+/*For Desktop*/
+.header-custom {
+  background-color: #ffffff;
+}
+
+.header-custom2 {
+  height: 120px;
+}
+
+.bakery {
+  font-family: "Philosopher", sans-serif;
+  font-size: 30px;
+  color: #cd8574;
+  line-height: 39px;
+  font-weight: bold;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 48px;
+}
+
+.bakery-line {
+  display: flex;
+}
+
+.bi-person {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bi-cart2 {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.bi-shop {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bi-suit-heart-fill {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.line-resp-desk {
+  display: block;
+  background-color: #ffffff;
+  color: #6b7281;
+  margin: 0px;
+}
+
+.bi-heart {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bi-list {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.bi-search {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.input-group {
+  box-shadow: 1px 1px #6b7281;
+  border-radius: 7px;
+}
+
+.bi-telephone {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.bi-chat-left {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.bi-book {
+  width: 48px;
+  height: 48px;
+  fill: currentColor;
+}
+
+.icon-tabler-users {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.bi-instagram {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.bi-facebook {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.bi-whatsapp {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.login-custom .a-custom {
+  text-decoration: none;
+  color: #6b7281;
+  font-family: "Philosopher";
+  font-size: 18px;
+}
+
+.menu .a-custom.index {
+  text-decoration: none;
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 18px;
+}
+
+.login-custom .a-custom:hover {
+  color: #cd8574;
+  height: 200px;
+}
+
+.forgot-hiperv:hover {
+  color: #d1583d;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 50px;
+  padding-top: 0px;
+  margin: 0px;
+  list-style-type: none;
+  background-color: #ffffff;
+}
+.menu-pc {
+  padding: 48px 0px;
+}
+
+.menu li .a-custom {
+  text-decoration: none;
+  color: #6b7281;
+  font-size: 18px;
+  font-family: "Philosopher";
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.menu li .a-custom svg {
+  margin-right: 10px;
+}
+
+.menu .a-custom:hover {
+  color: #cd8574;
+}
+
+.active {
+  color: rgb(232, 71, 176) !important;
+  border-bottom: 1px solid #e9abe0 !important;
+}
+
+.active2 {
+  SVG {
+    color: rgb(13, 10, 216) !important;
+  }
+  span {
+    color: #ffffff !important;
+  }
+}

@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  padding: 20px;
+  gap: 10px;
+  width: 1000px;
+}
+
+.box-info {
+  color: #d1583d;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.box-info > h1 {
+  text-align: left;
+  letter-spacing: 5px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.data > p {
+  font-size: 1rem;
+}
+
+.data > p > i {
+  color: rgb(160, 160, 160);
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}
+
+.links > a {
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  background: rgb(160, 160, 160);
+  text-align: center;
+  transition: 0.1s;
+}
+
+.links > a > i {
+  color: #fff;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box > input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  outline: none;
+  background: rgb(247, 246, 246);
+  border: 3px solid transparent;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  color: #665d5d;
+}
+
+.input-box > input::placeholder,
+.input-box > textarea::placeholder {
+  color: #a3a3a3;
+}
+
+.input-box > input:focus::placeholder,
+.input-box > textarea:focus::placeholder {
+  color: transparent;
+}
+
+.input-box > input:focus,
+.input-box > textarea:focus {
+  border-bottom: 3px solid rgb(243, 56, 131);
+  animation: shake 0.2s;
+}
+
+.input-box > textarea {
+  width: 100%;
+  height: 130px;
+  padding: 10px;
+  background: rgba(255 255 255 / 0.1);
+  border: 3px solid transparent;
+  letter-spacing: 1px;
+  outline: none;
+  transition: 0.3s;
+  color: #414040;
+  letter-spacing: 1.5px;
+}
+
+.input-box > i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: rgba(255 255 255 / 0.3);
+  transition: 0.3s;
+}
+
+.input-box > input:focus ~ i {
+  color: rgb(239, 84, 115);
+}
+
+form > button {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  background: #c6346a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  transition: 0.1s;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+form > button:hover,
+.links > a:hover {
+  background: rgb(172, 16, 47);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .box-info {
+    gap: 15px;
+  }
+
+  .box-info > h1 {
+    font-size: 1.5rem;
+  }
+}

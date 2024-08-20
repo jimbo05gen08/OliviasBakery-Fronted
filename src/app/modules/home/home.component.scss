@@ -1,0 +1,161 @@
+#banner-custom {
+  padding-left: 48px;
+  padding-right: 48px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+#banner-custom img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  object-position: center; /* Centers the image */
+  box-shadow: 1px 1px #6b7281;
+}
+
+.box-banner2 {
+  color: #6b7281;
+  font-family: "Philosopher";
+  font-size: 16px;
+  text-decoration-color: #6b7281;
+}
+
+.product {
+  color: #6b7281;
+  font-family: "Oxygen";
+  font-size: 14px;
+  text-decoration-color: #6b7281;
+}
+
+.product span {
+  display: flex;
+  justify-content: center;
+}
+
+.box-principal {
+  background-color: #ffffff;
+  height: 300px;
+}
+
+.list-group {
+  box-shadow: 1px 1px #6b7281;
+  border-radius: 7px;
+}
+
+.box-banner2 a span {
+  list-style-type: disc;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+
+#banner-custom {
+  padding-left: 48px;
+  padding-right: 48px;
+  margin-top: 8px;
+}
+
+#banner-custom img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 1px 1px #6b7281;
+}
+
+.icon-custom {
+  width: 40px;
+  height: 40px;
+  background-color: #cd8574;
+  border: #6b7281;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+.icon-custom svg {
+  color: #ffffff;
+}
+
+p.span2 {
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.span4 {
+  list-style-type: none;
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px;
+}
+
+.container-fluid.container-custom {
+  background-color: #ffffff;
+}
+
+section .card-custom {
+  background-color: #ffffff;
+  width: auto;
+  height: auto;
+  border: 1.5px solid #dfdfdf;
+  box-shadow: 1px 1px #6b7281;
+  border-radius: 7px;
+}
+
+section.card-custom div.box-hiperv {
+  width: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+div ul li.hiperv0 .span3 {
+  color: #6b7281;
+  font-family: "Oxygen";
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.card-custom div ul li.hiperv0 {
+  list-style-type: disc;
+  color: #cd8574;
+}
+
+#book-custom {
+  list-style-type: none;
+}
+
+#book-custom .span3 {
+  color: #6b7281;
+  font-family: "Oxygen";
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.card-custom div ul li.hiperv {
+  list-style-type: none;
+  margin: 0px;
+  position: relative;
+}
+
+.card-custom div .box-hiperv {
+  height: auto;
+}

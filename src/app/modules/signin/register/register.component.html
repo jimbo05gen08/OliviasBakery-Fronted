@@ -1,0 +1,128 @@
+<div class="col" style="width: 50%; margin-left: 400px">
+  <h4 class="subtittle">Registrarse</h4>
+  <div class="container-fluid access-custom">
+    <form [formGroup]="registerForm">
+      <div class="div-access2">
+        <span class="butt2"
+          ><label for="Input" class="form-label mt-2 mx-4"
+            >Ingresar Nombre</label
+          ></span
+        >
+        <span class="butt1"
+          ><input
+            type="name"
+            formControlName="name"
+            class="form-control button2 mx-4"
+            id="name"
+            aria-describedby="emailHelp"
+        /></span>
+        @if(controlHasError('name','required')) {
+        <div class="mensaje">
+          El Nombre es requerido! => por favor ingrese el Nombre
+        </div>
+        }
+
+        <span class="butt2">
+          <label for="Input" class="form-label mt-2 mx-4">
+            Ingresar Apellidos
+          </label>
+        </span>
+        <span class="butt1">
+          <input
+            type="name"
+            formControlName="lastName"
+            class="form-control button2 mx-4"
+            id="lastName"
+            aria-describedby="emailHelp"
+          /> </span
+        >@if(controlHasError('lastName','required')) {
+        <div class="mensaje">
+          Los Apellidos son requeridos! => por favor ingrese los Apellidos
+        </div>
+        }
+        <span class="butt2"
+          ><label for="Input" class="form-label mt-2 mx-4"
+            >Ingresar Email</label
+          ></span
+        >
+        <span class="butt1"
+          ><input
+            type="email"
+            formControlName="email"
+            class="form-control button2 mx-4"
+            id="email"
+            aria-describedby="emailHelp"
+        /></span>
+        @if(controlHasError('email','required')) {
+        <div class="mensaje">
+          El Email es requerido!! => por favor ingrese el Email
+        </div>
+        } @if(controlHasError('email','email')) {
+        <div class="mensaje">El Email ingresado no es válido!</div>
+        }
+        <span class="butt2"
+          ><label for="Input" class="form-label mt-2 mx-4"
+            >Ingresar Usuario</label
+          ></span
+        >
+        <span class="butt1"
+          ><input
+            type="name"
+            formControlName="userName"
+            class="form-control button2 mx-4"
+            id="userName"
+            aria-describedby="emailHelp"
+        /></span>
+        @if(controlHasError('userName','required')) {
+        <div class="mensaje">
+          El Usuario es requerido! => por favor ingrese un Usuario
+        </div>
+        }
+
+        <span class="butt2"
+          ><label for="input" class="form-label mt-2 mx-4"
+            >Contraseña</label
+          ></span
+        >
+        <span class="butt1"
+          ><input
+            type="password"
+            formControlName="password"
+            class="form-control button2 mx-4"
+            id="password"
+        /></span>
+        @if(controlHasError('password','required')) {
+        <div class="mensaje">
+          La Contraseña es requerida! => por favor ingrese una Contraseña
+        </div>
+        }
+      </div>
+    </form>
+  </div>
+  <br />
+
+  <div class="container div-access3">
+    <div class="form-check">
+      <input
+        class="form-check-input check-custom"
+        type="checkbox"
+        value=""
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label check-custom" for="flexCheckDefault">
+        He leído y estoy de acuerdo con la política de privacidad.
+      </label>
+    </div>
+    <br />
+
+    <div>
+      <button
+        type="button"
+        class="btn btn-primary button6 px-5 mx-4"
+        (click)="saveUser()"
+      >
+        Registrarse
+      </button>
+    </div>
+  </div>
+</div>

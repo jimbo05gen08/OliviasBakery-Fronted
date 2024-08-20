@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+.body-custom {
+  background-color: #ffffff;
+  height: 440px;
+}
+
+.menu .a-custom.us2 {
+  text-decoration: none;
+  color: #cd8574;
+  font-family: "Philosopher";
+  font-size: 18px;
+}
+
+.subtit {
+  font-family: "Philosopher";
+  font-size: 26px;
+  font-weight: bold;
+  color: #6b7281;
+}
+
+.parag {
+  font-family: "Oxygen";
+  font-size: 14px;
+  color: #6b7281;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.photo-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-logo img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #424243;
+}
