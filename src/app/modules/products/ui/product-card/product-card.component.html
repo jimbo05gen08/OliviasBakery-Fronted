@@ -10,11 +10,17 @@
       />
     </picture>
     <div class="contenido">
-      <a href="#">
+      <a href="#" style="display: flex">
         <h5
           class="titulo tracking-tight text-gray-900 dark:text-gray line-clamp-1"
         >
           {{ product().title }}
+        </h5>
+        <h5
+          class="titulo tracking-tight text-gray-900 dark:text-gray line-clamp-1"
+          style="margin-left: auto"
+        >
+          {{ product().price + ".00" + " " + "PEN" }}
         </h5>
       </a>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3">

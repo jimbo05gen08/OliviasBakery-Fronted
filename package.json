@@ -24,6 +24,7 @@
     "@angular/ssr": "^17.3.3",
     "bootstrap-icons": "^1.11.3",
     "express": "^4.18.2",
+    "jspdf": "^2.5.2",
     "ngxtension": "^4.0.0",
     "olivias-bakery": "file:",
     "primeng": "^17.18.7",

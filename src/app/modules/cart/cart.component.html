@@ -1,104 +1,619 @@
 <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-  <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
-    <h2
-      class="text-xl font-semibold text-gray-900 dark:text-gray-700 sm:text-2xl"
-    >
-      Carrito de compras
-    </h2>
+  @if (tab1Visible) {
+    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+      <h2
+        class="text-xl font-semibold text-gray-900 dark:text-gray-700 sm:text-2xl"
+      >
+        Carrito de compras
+      </h2>
 
-    <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
-      <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
-        <div class="fondo space-y-6">
-          @for (cartItem of state.products(); track cartItem.product.id) {
-            <app-cart-item
-              class="block"
-              [productCartItem]="cartItem"
-              (onRemove)="onRemove($event)"
-              (onDecrease)="onDecrease($event)"
-              (onIncrease)="onIncrease($event)"
-            />
-          }
+      <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
+        <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
+          <div class="fondo space-y-6">
+            @if (state.products().length === 0) {
+              <div>
+                Tu carrito de compras esta vacío <span>{{ ":´( " }}</span
+                >. ¿Qué esperas para llevarte los mejores productos, al mejor
+                precio?
+              </div>
+            } @else {
+              @for (cartItem of state.products(); track cartItem.product.id) {
+                <app-cart-item
+                  class="block"
+                  [productCartItem]="cartItem"
+                  (onRemove)="onRemove($event)"
+                  (onDecrease)="onDecrease($event)"
+                  (onIncrease)="onIncrease($event)"
+                />
+              }
+            }
+          </div>
         </div>
-      </div>
 
-      <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
-        <div
-          class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6"
-        >
-          <p class="text-xl font-semibold text-gray-900 dark:text-black">
-            Resumen del pedido
-          </p>
+        <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+          <div
+            class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6"
+          >
+            <p class="text-xl font-semibold text-gray-900 dark:text-black">
+              Resumen del pedido
+            </p>
 
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <dl class="flex items-center justify-between gap-4">
-                <dt
-                  class="text-base font-normal text-gray-500 dark:text-gray-400"
-                >
-                  Precio Original
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <dl class="flex items-center justify-between gap-4">
+                  <dt
+                    class="text-base font-normal text-gray-500 dark:text-gray-400"
+                  >
+                    Precio Original
+                  </dt>
+                  <dd
+                    class="text-base font-medium text-gray-900 dark:text-black"
+                  >
+                    {{ state.price() + ".00" + " " + "PEN" }}
+                  </dd>
+                </dl>
+
+                <dl class="flex items-center justify-between gap-4">
+                  <dt
+                    class="text-base font-normal text-gray-500 dark:text-gray-400"
+                  >
+                    Descuentos
+                  </dt>
+                  <dd class="text-base font-medium text-pink-600">-0.00 PEN</dd>
+                </dl>
+              </div>
+
+              <dl
+                class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700"
+              >
+                <dt class="text-base font-bold text-gray-900 dark:text-black">
+                  Total
                 </dt>
-                <dd class="text-base font-medium text-gray-900 dark:text-black">
-                  {{ state.price() | currency }}
+                <dd class="text-base font-bold text-gray-900 dark:text-black">
+                  {{ state.price() + ".00" + " " + "PEN" }}
                 </dd>
-              </dl>
-
-              <dl class="flex items-center justify-between gap-4">
-                <dt
-                  class="text-base font-normal text-gray-500 dark:text-gray-400"
-                >
-                  Descuentos
-                </dt>
-                <dd class="text-base font-medium text-pink-600">-$0.00</dd>
               </dl>
             </div>
 
-            <dl
-              class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700"
-            >
-              <dt class="text-base font-bold text-gray-900 dark:text-black">
-                Total
-              </dt>
-              <dd class="text-base font-bold text-gray-900 dark:text-black">
-                {{ state.price() | currency }}
-              </dd>
-            </dl>
-          </div>
-
-          <a
-            href="#"
-            class="flex w-full items-center justify-center rounded-lg bg-pink-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            >Proceder con el Pago</a
-          >
-
-          <div class="flex items-center justify-center gap-2">
-            <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-              or
-            </span>
             <button
-              routerLink="/products"
-              title=""
-              class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
+              (click)="showTab(2)"
+              (keydown.enter)="showTab(2)"
+              tabindex="0"
+              class="flex w-full items-center justify-center rounded-lg bg-pink-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              [class.opacity-50]="!canProceed()"
+              [class.cursor-not-allowed]="!canProceed()"
+              [attr.aria-disabled]="!canProceed()"
+              [attr.tabindex]="!canProceed() ? -1 : 0"
+              [disabled]="!canProceed()"
             >
-              Continuar comprando
-              <svg
-                class="h-5 w-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 12H5m14 0-4 4m4-4-4-4"
-                />
-              </svg>
+              Proceder con el Pago
             </button>
+
+            <div class="flex items-center justify-center gap-2">
+              <span
+                class="text-sm font-normal text-gray-500 dark:text-gray-400"
+              >
+                or
+              </span>
+              <button
+                routerLink="/products"
+                title=""
+                class="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
+              >
+                Continuar comprando
+                <svg
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 12H5m14 0-4 4m4-4-4-4"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  }
+  @if (tab2Visible) {
+    <div @estadoInicial>
+      <div
+        class="relative z-10"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500/75 transition-opacity"
+          aria-hidden="true"
+        ></div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div
+            class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+          >
+            <div
+              style="max-width: 48rem !important"
+              class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+            >
+              <div class="bg-white px-4 pt-2 pb-2 sm:p-6 sm:pb-4">
+                <div class="sm:items-start">
+                  <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
+                    <h2
+                      style="font-size: 25px"
+                      class="text-center font-semibold text-gray-900"
+                      id="modal-title"
+                    >
+                      Información de Pago
+                    </h2>
+                    <div class="mt-3">
+                      <p
+                        class="text-sm text-center text-gray-500"
+                        style="font-size: 18px"
+                      >
+                        Seleccione como realizarás tu pago:
+                      </p>
+                    </div>
+                    <form (ngSubmit)="onSubmit()">
+                      <div
+                        class="flex items-center"
+                        style="
+                          padding: 10px 30px 0px 30px;
+                          justify-content: center;
+                          height: 40px;
+                        "
+                      >
+                        <div class="mb-4" style="font-size: 13px; margin: 10px">
+                          <label for="opcion1" class="inline-flex items-center">
+                            <input
+                              type="radio"
+                              class="form-radio h-5 w-5"
+                              name="paymentType"
+                              [value]="'Tarjeta de Crédito'"
+                              [(ngModel)]="paymentForm.paymentType"
+                              style="
+                                width: 0.9rem;
+                                border: 2px solid rgb(245, 143, 160);
+                              "
+                            />
+                            <span class="ml-2 text-gray-700"
+                              >Tarjeta de Crédito</span
+                            >
+                          </label>
+                        </div>
+                        <div class="mb-4" style="font-size: 13px; margin: 10px">
+                          <label for="opcion2" class="inline-flex items-center">
+                            <input
+                              type="radio"
+                              class="form-radio h-5 w-5"
+                              name="paymentType"
+                              [value]="'Débito u otros'"
+                              [(ngModel)]="paymentForm.paymentType"
+                              style="
+                                width: 0.9rem;
+                                border: 2px solid rgb(245, 143, 160);
+                              "
+                            />
+                            <span class="ml-2 text-gray-700"
+                              >Débito u otros</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                      <div class="flex items-center mb-2">
+                        <img
+                          src="https://th.bing.com/th/id/R.ca064640a799d1a0701d2edeef06c956?rik=DbjUgZeBbeA%2f5Q&riu=http%3a%2f%2fpngimg.com%2fuploads%2fvisa%2fvisa_PNG4.png&ehk=ATUfwvEJGMksqdq8OWkAStPLbvzZ4jrtt%2fqLuop0KV0%3d&risl=&pid=ImgRaw&r=0"
+                          alt=""
+                          width="50px"
+                          height="50px"
+                          style="margin-right: 5px"
+                        />
+                        <img
+                          src="https://logos-world.net/wp-content/uploads/2020/09/Mastercard-Logo-2016-2020.png"
+                          alt=""
+                          width="50px"
+                          height="50px"
+                          style="margin-right: 5px"
+                        />
+                        <img
+                          src="https://aichiwith.com/wp-content/uploads/2022/12/unnamed-file-6.png"
+                          alt=""
+                          width="50px"
+                          height="50px"
+                          style="margin-right: 5px"
+                        />
+                        <img
+                          src="https://logodownload.org/wp-content/uploads/2014/10/paypal-logo-0.png"
+                          alt=""
+                          width="50px"
+                          height="50px"
+                        />
+                      </div>
+                      <div class="flex items-center mb-3" style="width: 100%">
+                        <div
+                          style="width: 50%; display: flex; margin-right: 10px"
+                        >
+                          <label for="cardNumber" style="width: 45%"
+                            >Número de la Tarjeta :</label
+                          >
+                          <input
+                            type="text"
+                            placeholder="Número de tarjeta..."
+                            name="cardNumber"
+                            [(ngModel)]="paymentForm.cardNumber"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          />
+                        </div>
+                        <div style="width: 50%; display: flex">
+                          <label for="ccv" style="width: 45%">CCV :</label>
+                          <input
+                            type="text"
+                            name="ccv"
+                            [(ngModel)]="paymentForm.ccv"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          />
+                        </div>
+                      </div>
+                      <div class="flex items-center mb-3" style="width: 100%">
+                        <div
+                          style="width: 50%; display: flex; margin-right: 10px"
+                        >
+                          <label for="expiryMonth" style="width: 45%"
+                            >Mes de Expiración :</label
+                          >
+                          <select
+                            name="expiryMonth"
+                            [(ngModel)]="paymentForm.expiryMonth"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          >
+                            <option value="">... Seleccionar</option>
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <!-- Otras opciones para los meses -->
+                          </select>
+                        </div>
+                        <div style="width: 50%; display: flex">
+                          <label for="expiryYear" style="width: 45%"
+                            >Año de Expiración :</label
+                          >
+                          <select
+                            name="expiryYear"
+                            [(ngModel)]="paymentForm.expiryYear"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          >
+                            <option value="">... Seleccionar</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <!-- Otras opciones para los años -->
+                          </select>
+                        </div>
+                      </div>
+                      <div class="flex items-center mb-3" style="width: 100%">
+                        <div
+                          style="width: 50%; display: flex; margin-right: 10px"
+                        >
+                          <label for="firstName" style="width: 45%"
+                            >Nombres :</label
+                          >
+                          <input
+                            type="text"
+                            name="firstName"
+                            [(ngModel)]="paymentForm.firstName"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          />
+                        </div>
+                        <div style="width: 50%; display: flex">
+                          <label for="lastName" style="width: 45%"
+                            >Apellidos :</label
+                          >
+                          <input
+                            type="text"
+                            name="lastName"
+                            [(ngModel)]="paymentForm.lastName"
+                            style="
+                              width: 50%;
+                              border: 2px solid rgb(245, 143, 160);
+                              border-radius: 5px;
+                              margin-left: 5px;
+                            "
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" style="width: 22%"
+                          >Correo Electrónico :</label
+                        >
+                        <input
+                          type="text"
+                          name="email"
+                          [(ngModel)]="paymentForm.email"
+                          style="
+                            width: 76%;
+                            border: 2px solid rgb(245, 143, 160);
+                            border-radius: 5px;
+                            margin-left: 5px;
+                          "
+                        />
+                      </div>
+                      <div class="contenedor-pago">
+                        <div class="descripcion">
+                          <h3>Total a pagar por consumo :</h3>
+                        </div>
+                        <div class="precio">
+                          <h3>{{ state.price() + ".00" + " " + "PEN" }}</h3>
+                        </div>
+                      </div>
+                      <div class="text-center mt-3">
+                        <button
+                          (click)="showTab(3)"
+                          (keydown.enter)="showTab(3)"
+                          tabindex="0"
+                          type="submit"
+                          class="bg-pink-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                          Pagar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @if (tab3Visible) {
+    <div @estadoInicial>
+      <div
+        class="relative z-10"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <!--
+    Background backdrop, show/hide based on modal state.
+
+    Entering: "ease-out duration-300"
+      From: "opacity-0"
+      To: "opacity-100"
+    Leaving: "ease-in duration-200"
+      From: "opacity-100"
+      To: "opacity-0"
+  -->
+        <div
+          class="fixed inset-0 bg-gray-500/75 transition-opacity"
+          aria-hidden="true"
+        ></div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div
+            class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+          >
+            <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+            <div
+              style="max-width: 48rem !important"
+              class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+            >
+              <div class="bg-white px-4 pt-2 pb-2 sm:p-6 sm:pb-4">
+                <div class="sm:items-start">
+                  <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
+                    <img
+                      src="../../../assets/images/congratulations.png"
+                      alt=""
+                      width="100%"
+                      height="auto"
+                    />
+                    <div class="titulo">
+                      <h2
+                        style="font-size: 25px"
+                        class="text-center font-semibold text-gray-900"
+                        id="modal-title"
+                      >
+                        ¡ Tu Compra ha sido un Éxito !
+                      </h2>
+                      <div class="imagen-logo">
+                        <img
+                          src="../../../assets/images/valid.png"
+                          alt=""
+                          width="100px"
+                          height="100px"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="text-center mt-3 mb-3">
+                  <button
+                    (click)="showTab(4)"
+                    (keydown.enter)="showTab(4)"
+                    tabindex="0"
+                    type="submit"
+                    class="bg-pink-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  >
+                    ver comprobante
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+  @if (tab4Visible) {
+    <div class="comprobante">
+      <div class="contenido">
+        <div id="contenido-factura-pdf">
+          <div class="encabezado">
+            <div class="logo">
+              <img
+                src="../../../assets/images/olivias-bakery-logo.jpg"
+                alt=""
+              />
+            </div>
+            <div class="texto">
+              <div>Comprobante de compra y pagos virtuales</div>
+              <div>nro. 000012</div>
+            </div>
+          </div>
+          <div class="detalle-dia">
+            <div>
+              <ul>
+                <li style="display: flex">
+                  <img
+                    src="../../../assets/images/valid.png"
+                    alt=""
+                    width="25px"
+                    height="20px"
+                    style="margin-right: 5px"
+                  />
+                  <p>Pago Exitoso</p>
+                </li>
+                <li>Fecha: Viernes 31 de enero del 2025</li>
+                <li>Hora: 08:35 pm</li>
+                <li>Razon Social: Olivia´s Bakery</li>
+                <li>RUC: 20720294066</li>
+              </ul>
+            </div>
+          </div>
+          <div class="detalle-pago">
+            <div class="titulo-detalle">Detalle</div>
+            <div class="precio">{{ state.price() + ".00" + " " + "PEN" }}</div>
+            <div>valor pagado</div>
+          </div>
+          <div>
+            <div style="padding: 0px 30px; font-size: 15px; font-weight: 700">
+              Descripción de la compra:
+            </div>
+            <div class="contenido-factura">
+              <div class="contenido-izquierda">
+                <ul>
+                  <li>tipo de Compra :</li>
+                  <li>tipo de cuenta :</li>
+                  <li>Numero de la tarjeta :</li>
+                  <li>CCV :</li>
+                  <li>Nombre del beneficiario :</li>
+                  <li>Apellidos Completos :</li>
+                  <li>Correo Electrónico :</li>
+                </ul>
+              </div>
+              <div class="contenido-derecha">
+                <ul>
+                  <li>{{ "Compra Virtual" }}</li>
+                  <li>{{ paymentForm.paymentType }}</li>
+                  <li>{{ paymentForm.cardNumber }}</li>
+                  <li>{{ paymentForm.ccv }}</li>
+                  <li>{{ paymentForm.firstName }}</li>
+                  <li>{{ paymentForm.lastName }}</li>
+                  <li>{{ paymentForm.email }}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="descripción-productos">
+              <div
+                style="
+                  padding: 0px 30px;
+                  font-size: 15px;
+                  font-weight: 700;
+                  margin-bottom: 20px;
+                "
+              >
+                Descripción de productos:
+              </div>
+              <ul class="titulos-descripcion">
+                <li>Producto</li>
+                <li>Cantidad</li>
+                <li>Precio</li>
+              </ul>
+              @for (cartItem of state.products(); track cartItem.product.id) {
+                <ul>
+                  <li>{{ cartItem.product.title }}</li>
+                  <li>{{ cartItem.quantity }}</li>
+                  <li>{{ cartItem.product.price + ".00" + " " + "PEN" }}</li>
+                </ul>
+              }
+              <ul class="titulos-descripcion2">
+                <li></li>
+                <li>total a pagar :</li>
+                <li>{{ state.price() + ".00" + " " + "PEN" }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="botones">
+          <div class="mt-3" style="margin-right: 30px">
+            <button
+              (click)="generatePDF()"
+              (keydown.enter)="generatePDF()"
+              tabindex="0"
+              type="button"
+              class="bg-pink-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Descargar
+            </button>
+          </div>
+          <div class="mt-3">
+            <a
+              [routerLink]="'/products'"
+              (click)="showTab(3)"
+              (keydown.enter)="showTab(3)"
+              tabindex="0"
+              type="submit"
+              class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Volver
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </section>

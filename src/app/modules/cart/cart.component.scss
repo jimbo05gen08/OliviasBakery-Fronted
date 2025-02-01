@@ -1,3 +1,146 @@
 .fondo {
-  background-color: rgb(186, 186, 186) !important;
+  background-color: rgb(246, 246, 246) !important;
+}
+
+.contenedor-pago {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+  border-top: 1px solid rgb(201, 201, 201);
+  padding: 20px;
+  .descripcion {
+    width: 60%;
+    margin-left: auto;
+    h3 {
+      color: black;
+      font-weight: bold;
+      font-size: large;
+    }
+  }
+  .precio {
+    h3 {
+      color: black;
+      font-weight: bold;
+      font-size: large;
+    }
+  }
+}
+
+.titulo {
+  position: absolute;
+  position: absolute;
+  top: 315px;
+  left: 220px;
+  .imagen-logo {
+    position: absolute;
+    top: 55px;
+    left: 115px;
+  }
+}
+
+.comprobante {
+  padding: 10px 250px;
+  .contenido {
+    border: 1px solid rgb(209, 209, 209);
+    .encabezado {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(246, 233, 216);
+
+      .logo {
+        align-items: flex-start;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .texto {
+        align-items: flex-end;
+        font-weight: 800;
+        margin-top: 40px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.detalle-dia {
+  padding: 20px;
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.detalle-pago {
+  width: 100%;
+  text-align: center;
+  background-color: pink;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  .titulo-detalle {
+    font-weight: bold;
+  }
+  .precio {
+    font-size: 35px;
+    font-weight: 600;
+  }
+}
+
+.contenido-factura {
+  width: 100%;
+  display: flex;
+  padding: 20px 80px;
+  .contenido-izquierda {
+    width: 40%;
+    li {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+  }
+  .contenido-derecha {
+    width: 60%;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+}
+.botones {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-top: 1px solid rgb(222, 222, 222);
+}
+.descripción-productos {
+  .titulos-descripcion {
+    padding: 0px 100px;
+    display: flex;
+    width: 100%;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    li {
+      text-align: center;
+      width: 33%;
+    }
+  }
+  ul {
+    padding: 0px 100px;
+    display: flex;
+    width: 100%;
+
+    li {
+      text-align: end;
+      width: 33%;
+    }
+  }
+  .titulos-descripcion2 {
+    padding: 0px 100px;
+    display: flex;
+    width: 100%;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    li {
+      text-align: end;
+      width: 33%;
+    }
+  }
 }
